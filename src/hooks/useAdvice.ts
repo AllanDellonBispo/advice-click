@@ -30,8 +30,6 @@ export async function randomAdvice(): Promise<Advice | null> {
       if (!response.ok) throw new Error("Erro ao buscar o conselho");
   
       const data: SearchAdviceResponse = await response.json();
-      console.log(data);
-    //   const teste[] = data.slips;
       return data;
     } catch (error) {
       console.error("Erro ao buscar conselho:", error);

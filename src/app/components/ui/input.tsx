@@ -21,20 +21,20 @@ export const Input = ({type, icon, placeholder, onChange, onClick}: Props) => {
                         border-purple-950
                         shadow-2xl
                         w-96
+                        md:w-7/12
                         rounded-full
                         mt-8
                         shadow-lg
                         p-4 
-                        bg-purple-950
-                        cursor-pointer">
+                        bg-purple-950">
 
             <input
                 type={type}
                 className="flex-1 outline-none bg-transparent h-full px-4"
                 placeholder={placeholder}
                 onChange={e => onChange && onChange(e.target.value)}
-                onClick={onClick}/>
-            <FontAwesomeIcon icon={icon} className="size-5" />
+                />
+            <FontAwesomeIcon icon={icon} className="size-5 cursor-pointer" onClick={onClick}/>
         </div>
     );
 }

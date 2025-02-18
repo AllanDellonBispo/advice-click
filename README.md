@@ -21,21 +21,24 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Descrição do Projeto
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# advice-click
 O Advice Click é um aplicativo web interativo que permite aos usuários obter conselhos aleatórios com apenas um clique. Além disso, a plataforma oferece um sistema de busca, onde é possível pesquisar conselhos por palavras-chave, trazendo resultados relevantes diretamente de uma API especializada.
->>>>>>> f63d067c35e516a848cfc9dcefe9bd2c37ce459c
+
+🛠️ Tecnologias Utilizadas
+Frontend: React.js, TypeScript
+Estilização: Tailwind CSS
+Consumo de API: Fetch API / Axios
+🚀 Funcionalidades Principais
+✔️ Obtenção de conselhos aleatórios ao clicar no botão
+✔️ Pesquisa de conselhos por palavras-chave
+✔️ Interface leve, responsiva e intuitiva
+✔️ Atualização dinâmica dos conselhos sem recarregar a página
+
+📈 Diferenciais
+🔹 Experiência interativa e fluida com React
+🔹 Consulta eficiente à API externa para exibição de conselhos
+🔹 Design moderno e otimizado para qualquer dispositivo
+🔹 Feedback imediato, proporcionando uma navegação ágil e agradável
+
+O Advice Click é um projeto simples, porém funcional, que busca oferecer um toque de motivação e reflexão ao usuário com conselhos inspiradores e personalizados.

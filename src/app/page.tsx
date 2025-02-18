@@ -15,6 +15,7 @@ export default function Page() {
   const [advices, setAdvices] = useState<SearchAdviceResponse | null>(null);
 
   const handleSearch = async () => {
+      setAdvices(null);
       const a = await randomAdvice();
       setAdvice(a);
   }
@@ -26,16 +27,16 @@ export default function Page() {
 
   return (
     <>
-      <header className="flex justify-end p-4 cursor-pointer mt-8">
+      <header className="flex justify-end p-4 cursor-pointer mt-2">
         <FontAwesomeIcon icon={faBars} className="size-8" />
       </header>
-      <main className="flex flex-col justify-center items-center gap-10">
+      <main className="flex flex-col justify-center items-center gap-6">
         <Input type="text" icon={faSearch} placeholder="Pesquise um conselho" onChange={e => setTextSearch(e)} onClick={textSearch.length > 4 ? handleTextSearch: () => {}} />
         
         {advices ? (
           <>
-            {advices.slips.map((item) => (
-              <CardAdvice key={item.id} text={item.advice} />
+            {advices.slips.map((item, index) => (
+              <CardAdvice key={item.id} text={item.advice} numberAdvice={index+1} />
             ))}
               <Button name="VER CONSELHOS" onClick={handleSearch} />
           </>
