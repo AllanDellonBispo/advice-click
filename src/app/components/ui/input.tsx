@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type Props = {
     type: string;
-    icon: IconProp;
+    icon?: IconProp;
     placeholder: string;
     onChange?: (newValue: string) => void;
     onClick?: () => void;
@@ -26,7 +26,8 @@ export const Input = ({type, icon, placeholder, onChange, onClick}: Props) => {
                         mt-8
                         shadow-lg
                         p-4 
-                        bg-purple-950">
+                        bg-purple-950"
+                aria-label="inputForSearch">
 
             <input
                 type={type}
@@ -34,7 +35,9 @@ export const Input = ({type, icon, placeholder, onChange, onClick}: Props) => {
                 placeholder={placeholder}
                 onChange={e => onChange && onChange(e.target.value)}
                 />
-            <FontAwesomeIcon icon={icon} className="size-5 cursor-pointer" onClick={onClick}/>
+                { icon &&
+                    <FontAwesomeIcon icon={icon} className="size-5 cursor-pointer" onClick={onClick}/>
+                }
         </div>
     );
 }

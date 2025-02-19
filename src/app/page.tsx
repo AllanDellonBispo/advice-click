@@ -38,12 +38,12 @@ export default function Page() {
             {advices.slips.map((item, index) => (
               <CardAdvice key={item.id} text={item.advice} numberAdvice={index+1} />
             ))}
-              <Button name="VER CONSELHOS" onClick={handleSearch} />
+              <Button text="VER CONSELHOS" onClick={handleSearch} />
           </>
           ) : (
             <>
               <CardAdvice text={advice ? advice.slip.advice : 'Clique abaixo e veja o CONSELHO que te aguarda hoje'} />
-              <Button name="VER CONSELHO" onClick={handleSearch} />
+              <Button text="VER CONSELHO" onClick={handleSearch} />
             </>
 )}
       </main>
