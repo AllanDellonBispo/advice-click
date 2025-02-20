@@ -13,16 +13,22 @@ export default function Page() {
   const [advice, setAdvice] = useState<Advice | null>(null);
   const [textSearch, setTextSearch] = useState<string>('');
   const [advices, setAdvices] = useState<SearchAdviceResponse | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSearch = async () => {
+      setIsLoading(true);
       setAdvices(null);
       const a = await randomAdvice();
       setAdvice(a);
+      setIsLoading(false);
   }
 
   const handleTextSearch = async () => {
+      setAdvices(null);
+      setIsLoading(true);
       const res = await serachAdvices(textSearch);
       setAdvices(res);
+      setIsLoading(false);
   }
 
   return (
@@ -38,12 +44,12 @@ export default function Page() {
             {advices.slips.map((item, index) => (
               <CardAdvice key={item.id} text={item.advice} numberAdvice={index+1} />
             ))}
-              <Button text="VER CONSELHOS" onClick={handleSearch} />
+              <Button text="VER CONSELHOS" onClick={handleSearch} isLoading={isLoading} />
           </>
           ) : (
             <>
               <CardAdvice text={advice ? advice.slip.advice : 'Clique abaixo e veja o CONSELHO que te aguarda hoje'} />
-              <Button text="VER CONSELHO" onClick={handleSearch} />
+              <Button text="VER CONSELHO" onClick={handleSearch} isLoading={isLoading} />
             </>
 )}
       </main>

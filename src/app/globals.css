@@ -8,6 +8,7 @@
 
 html{
   background: linear-gradient(to bottom, #530095, #160721);
+  height: 100vh;
 }
 
 body{
@@ -18,7 +19,7 @@ body{
 }
 
 @media (max-height: 700px) {
-  body {
+  html body {
     height: 100%;
   }
 }

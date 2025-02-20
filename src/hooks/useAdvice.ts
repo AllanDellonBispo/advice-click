@@ -17,6 +17,7 @@ export async function randomAdvice(): Promise<Advice | null> {
       if(!response.ok) throw new Error(`Error for advice search: ${response.status} ${response.statusText}`);
       
       const data: Advice = await response.json();
+
       return data;
     } catch (error) {
       console.error("Error for advice search:", error);

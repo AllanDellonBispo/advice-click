@@ -1,12 +1,19 @@
 // import { Advice, randomAdvice } from './useAdvice';
 import request from "supertest";
-import { randomAdvice } from "./useAdvice";
+import { Advice, randomAdvice } from "./useAdvice";
+import fetch from "node-fetch"; 
 
 
     test("Check query status of API for function randomAdvice", async () => {
         const response = await request("https://api.adviceslip.com").get("/advice");
-        expect(response.status).toBe(200); // Verifica se a API está respondendo
-      });
+
+        const data = response.body && Object.keys(response.body).length > 0 ? response.body : JSON.parse(response.text);
+
+        expect(response.status).toBe(200); // Verifica se a API responde corretamente
+        expect(data).toHaveProperty("slip"); // Confere se existe a propriedade "slip"
+        expect(data.slip).toHaveProperty("advice"); // Garante que dentro de "slip" existe "advice"
+    });
+
 
       test("Check query status of API for function serachAdvices", async () => {
         const response = await request(`https://api.adviceslip.com`).get("/advice/search/people");
@@ -25,4 +32,11 @@ import { randomAdvice } from "./useAdvice";
         const advice = await randomAdvice();
         expect(advice).toBeDefined();
         expect(advice?.slip.advice).toBe("Test of advice");
+      });
+
+
+
+      test("Check API response with fetch", async () => {
+        const response = await fetch("https://api.adviceslip.com/advice");      
+        expect(response.status).toBe(200);
       });
