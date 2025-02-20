@@ -1,8 +1,10 @@
-module.exports = {
-    transform: {
-      '^.+\\.[t|j]sx?$': 'babel-jest',  // Transforma arquivos .js, .jsx, .ts e .tsx com Babel
-    },
-    setupFilesAfterEnv: ['@testing-library/jest-dom'],  // Correção aqui: não é necessário "/extend-expect"
-    testEnvironment: 'jest-environment-jsdom',  // Ambiente para testes com React
-  };
-  
+const nextJest = require('next/jest')
+
+const createJestConfig = nextJest({ dir: './' })
+
+const customJestConfig = {
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  testEnvironment: 'jest-environment-jsdom',
+}
+
+module.exports = createJestConfig(customJestConfig)

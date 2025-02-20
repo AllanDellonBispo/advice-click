@@ -24,8 +24,6 @@ export const Input = ({type, icon, placeholder, onChange, onClick}: Props) => {
                         md:w-7/12
                         rounded-full
                         mt-8
-                        shadow-lg
-                        p-4 
                         bg-purple-950"
                 aria-label="inputForSearch">
 

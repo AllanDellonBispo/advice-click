@@ -14,12 +14,12 @@ export interface SearchAdviceResponse {
 export async function randomAdvice(): Promise<Advice | null> {
     try {
       const response = await fetch('https://api.adviceslip.com/advice');
-      if (!response.ok) throw new Error("Erro ao buscar o conselho");
-  
+      if(!response.ok) throw new Error(`Error for advice search: ${response.status} ${response.statusText}`);
+      
       const data: Advice = await response.json();
       return data;
     } catch (error) {
-      console.error("Erro ao buscar conselho:", error);
+      console.error("Error for advice search:", error);
       return null;
     }
   }
@@ -27,12 +27,12 @@ export async function randomAdvice(): Promise<Advice | null> {
   export async function serachAdvices(text: string): Promise<SearchAdviceResponse | null> {
     try {
       const response = await fetch(`https://api.adviceslip.com/advice/search/${text}`);
-      if (!response.ok) throw new Error("Erro ao buscar o conselho");
+      if(!response.ok) throw new Error(`Error for advice search: ${response.status} ${response.statusText}`);
   
       const data: SearchAdviceResponse = await response.json();
       return data;
     } catch (error) {
-      console.error("Erro ao buscar conselho:", error);
+      console.error("Error for advice search:", error);
       return null;
     }
   }
